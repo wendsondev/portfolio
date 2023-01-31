@@ -12,8 +12,7 @@ export function ContextThemeProvider({ children }: ContextThemeProps) {
   const [theme, setTheme] = useState(light);
 
   const toggleTheme = () => {
-    const newTheme = theme?.title === 'dark' ? dark : light;
-
+    const newTheme = theme?.title === 'dark' ? light : dark;
     setTheme(newTheme);
     localStorage.setItem('theme', newTheme.title);
   };
