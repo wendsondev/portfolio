@@ -2,6 +2,7 @@ import { ContextThemeProvider } from '@contexts/Theme';
 import { Roboto } from '@next/font/google';
 import { GlobalStyle } from '@styles/global';
 import Head from 'next/head';
+import { Footer } from '../Footer';
 import { Header } from '../Header';
 
 const roboto = Roboto({ subsets: ['latin'], weight: ['400', '700', '900'] });
@@ -84,6 +85,8 @@ export function Layout({ children }: LayoutProps) {
         <Header />
 
         {children}
+
+        <Footer />
 
         <GlobalStyle />
       </ContextThemeProvider>

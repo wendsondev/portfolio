@@ -1,8 +1,8 @@
 import { Container } from './styles';
 
-export function Logo() {
+export function Logo({ size = 2 }: { size?: number }) {
   return (
-    <Container href="/">
+    <Container size={size} href="/">
       <span>{'<'}</span>
       WS
       <span>{'>'}</span>
