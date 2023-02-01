@@ -14,6 +14,14 @@ export const dark = {
     },
     gradient: 'linear-gradient(#60A5FA, #BFDBFE)',
   },
+
+  sizes: {
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+    '2xl': '1536px',
+  },
 };
 
 export const light = {
@@ -31,5 +39,13 @@ export const light = {
       secondary: '#D1D5DB',
     },
     gradient: 'linear-gradient(#60A5FA, #1E3A8A)',
+  },
+
+  sizes: {
+    sm: '640px',
+    md: '768px',
+    lg: '1024px',
+    xl: '1280px',
+    '2xl': '1536px',
   },
 };
