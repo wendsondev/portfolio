@@ -13,6 +13,7 @@ export const Label = styled.label`
 export const SwitchRoot = styled(Switch.Root)`
   width: 12rem;
   height: 4rem;
+  cursor: pointer;
   border: none;
   border-radius: 9999rem;
   position: relative;
