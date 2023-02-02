@@ -22,24 +22,20 @@ export function SwiperSkill({ slides }: SwiperProps) {
       loop
       slidesPerView={1}
       breakpoints={{
-        480: {
+        640: {
           slidesPerView: 2,
         },
 
-        768: {
+        920: {
           slidesPerView: 3,
         },
 
-        1024: {
+        1280: {
           slidesPerView: 4,
         },
 
-        1280: {
-          slidesPerView: 5,
-        },
-
         1536: {
-          slidesPerView: 6,
+          slidesPerView: 5,
         },
       }}
       modules={[Pagination]}
