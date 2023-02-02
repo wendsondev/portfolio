@@ -65,15 +65,8 @@ export const Navbar = styled.nav<NavbarProps>`
   }
 `;
 
-type LinkProps = {
-  path: string;
-};
-
-export const Link = styled(LinkPrimitive)<LinkProps>`
-  color: ${({ theme, path, href }) =>
-    href === path.split('/')[1]
-      ? theme.colors.text.quaternary
-      : theme.colors.text.primary};
+export const Link = styled(LinkPrimitive)`
+  color: ${(props) => props.theme.colors.text.primary};
   text-decoration: none;
   font-size: 1.25rem;
   font-weight: 700;

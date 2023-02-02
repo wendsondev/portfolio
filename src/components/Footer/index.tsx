@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router';
 import { RiLinkedinFill } from 'react-icons/ri';
 import { VscGithubAlt } from 'react-icons/vsc';
 import { Logo } from '../Logo';
@@ -11,8 +10,6 @@ import {
 } from './styles';
 
 export function Footer() {
-  const { asPath } = useRouter();
-
   return (
     <Container id="contacts">
       <Logo size={3.5} />
@@ -20,24 +17,16 @@ export function Footer() {
       <Navbar>
         <ul>
           <li>
-            <Link path={asPath} href="#about">
-              About me
-            </Link>
+            <Link href="#about">About me</Link>
           </li>
           <li>
-            <Link path={asPath} href="#skills">
-              Skills
-            </Link>
+            <Link href="#skills">Skills</Link>
           </li>
           <li>
-            <Link path={asPath} href="#projects">
-              Projects
-            </Link>
+            <Link href="#projects">Projects</Link>
           </li>
           <li>
-            <Link path={asPath} href="#contacts">
-              Contacts
-            </Link>
+            <Link href="#contacts">Contacts</Link>
           </li>
         </ul>
 

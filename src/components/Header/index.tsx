@@ -24,24 +24,16 @@ export function Header() {
         </MobileMenu>
         <ul>
           <li>
-            <Link path={asPath} href="#about">
-              About me
-            </Link>
+            <Link href="#about">About me</Link>
           </li>
           <li>
-            <Link path={asPath} href="#skills">
-              Skills
-            </Link>
+            <Link href="#skills">Skills</Link>
           </li>
           <li>
-            <Link path={asPath} href="#projects">
-              Projects
-            </Link>
+            <Link href="#projects">Projects</Link>
           </li>
           <li>
-            <Link path={asPath} href="#contacts">
-              Contacts
-            </Link>
+            <Link href="#contacts">Contacts</Link>
           </li>
         </ul>
       </Navbar>
