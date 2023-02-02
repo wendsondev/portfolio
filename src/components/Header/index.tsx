@@ -9,7 +9,9 @@ export function Header() {
   const { asPath } = useRouter();
 
   useEffect(() => {
-    setMenuMobileIsOpen(false);
+    if (menuMobileIsOpen) {
+      setMenuMobileIsOpen(false);
+    }
   }, [asPath]);
 
   return (
