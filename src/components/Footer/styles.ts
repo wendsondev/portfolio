@@ -35,6 +35,10 @@ export const Navbar = styled.div`
   @media screen and (max-width: ${({ theme }) => theme.sizes.lg}) {
     align-items: center;
   }
+
+  @media screen and (max-width: ${({ theme }) => theme.sizes.md}) {
+    display: none;
+  }
 `;
 
 export const Link = styled(LinkPrimitive)`

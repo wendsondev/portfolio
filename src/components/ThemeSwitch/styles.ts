@@ -10,14 +10,24 @@ export const Label = styled.label`
   color: ${({ theme }) => theme.colors.text.primary};
 `;
 
-export const SwitchRoot = styled(Switch.Root)`
+type SwitchRootProps = {
+  background?: string;
+};
+
+export const SwitchRoot = styled(Switch.Root)<SwitchRootProps>`
   width: 12rem;
   height: 4rem;
   cursor: pointer;
   border: none;
   border-radius: 9999rem;
   position: relative;
-  background: ${({ theme }) => theme.colors.background.secondary};
+  background: ${({ theme, background }) =>
+    background || theme.colors.background.secondary};
+
+  @media screen and (max-width: ${({ theme }) => theme.sizes.md}) {
+    width: 10rem;
+    height: 2.5rem;
+  }
 `;
 
 export const SwitchThumb = styled(Switch.Thumb)`
@@ -33,5 +43,14 @@ export const SwitchThumb = styled(Switch.Thumb)`
 
   &[data-state='checked'] {
     transform: translateX(8.25rem) rotate(360deg);
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.sizes.md}) {
+    width: 2rem;
+    height: 2rem;
+
+    &[data-state='checked'] {
+      transform: translateX(7.5rem) rotate(360deg);
+    }
   }
 `;

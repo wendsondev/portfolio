@@ -12,40 +12,35 @@ import {
   Skills,
   SubTitle,
   SwiperContainer,
+  Title,
   Welcome,
 } from './styles.home';
 
 export default function Home() {
   const fakeSkills = Array.from({ length: 15 }).map((_, i) => {
-    return (
-      <SkillCard
-        key={i}
-        imageUrl="https://github.com/wendson13.png"
-        skill={`Typescript ${i + 1}`}
-      />
-    );
+    return {
+      imageUrl: 'https://github.com/wendson13.png',
+      skill: 'Typescript' + i,
+    };
   });
 
   const fakeProjects = Array.from({ length: 15 }).map((_, i) => {
-    return (
-      <ProjectCard
-        key={i}
-        title={`Landing Page ${i + 1}`}
-        description="this is landing page description"
-        languages={['HTML', 'CSS', 'JavaScript']}
-        github="github.com/wendson13/landing-page"
-        preview="https://example.com"
-      />
-    );
+    return {
+      title: `Project ${i + 1}`,
+      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid`,
+      github: `https://github.com/wendson13/project${i + 1}`,
+      languages: ['JavaScript', 'TypeScript'],
+      preview: `https://github.com/wendson13/`,
+    };
   });
 
   return (
     <Container>
       <Welcome>
         <div>
-          <h1>
+          <Title>
             Wendson Sousa <span>Front-End Developer</span>
-          </h1>
+          </Title>
           <p>Specialized in creating modern websites and web applications.</p>
         </div>
 

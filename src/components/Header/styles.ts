@@ -39,6 +39,10 @@ export const Navbar = styled.nav<NavbarProps>`
     list-style: none;
 
     transition: 150ms;
+
+    > div {
+      display: none;
+    }
   }
 
   @media screen and (max-width: ${({ theme }) => theme.sizes.md}) {
@@ -60,6 +64,10 @@ export const Navbar = styled.nav<NavbarProps>`
         &:first-child {
           margin-top: -5rem;
         }
+      }
+
+      > div {
+        display: block;
       }
     }
   }

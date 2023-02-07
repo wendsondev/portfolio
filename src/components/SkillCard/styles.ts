@@ -11,8 +11,20 @@ export const Container = styled.div`
   padding: 2rem;
   background: ${(props) => props.theme.colors.background.secondary};
 
+  img {
+    width: 100%;
+    object-fit: contain;
+  }
+
   span {
+    text-align: center;
     font-size: 1.5rem;
     color: ${(props) => props.theme.colors.text.primary};
+  }
+
+  @media screen and (max-width: ${(props) => props.theme.sizes.sm}) {
+    span {
+      font-size: 1.25rem;
+    }
   }
 `;

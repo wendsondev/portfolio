@@ -36,4 +36,12 @@ export const Container = styled.div`
     font-size: 1.5rem;
     font-weight: 700;
   }
+
+  @media screen and (max-width: ${(props) => props.theme.sizes.sm}) {
+    justify-content: center;
+
+    span {
+      display: none;
+    }
+  }
 `;

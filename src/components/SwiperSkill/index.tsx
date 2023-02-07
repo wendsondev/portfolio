@@ -3,17 +3,14 @@ import { SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { SkillCard, SkillCardProps } from '../SkillCard';
 import { Container } from './styles';
 
 type SwiperProps = {
-  slides: React.ReactNode[];
+  slides: SkillCardProps[];
 };
 
 export function SwiperSkill({ slides }: SwiperProps) {
-  if (!slides) {
-    return null;
-  }
-
   return (
     <Container
       pagination={{
@@ -21,12 +18,13 @@ export function SwiperSkill({ slides }: SwiperProps) {
       }}
       loop
       slidesPerView={1}
+      spaceBetween={16}
       breakpoints={{
-        640: {
+        500: {
           slidesPerView: 2,
         },
 
-        920: {
+        850: {
           slidesPerView: 3,
         },
 
@@ -41,7 +39,15 @@ export function SwiperSkill({ slides }: SwiperProps) {
       modules={[Pagination]}
     >
       {slides.map((slide, index) => {
-        return <SwiperSlide key={index}>{slide}</SwiperSlide>;
+        return (
+          <SwiperSlide key={index}>
+            <SkillCard
+              key={slide.skill + index}
+              imageUrl={slide.imageUrl}
+              skill={slide.skill}
+            />
+          </SwiperSlide>
+        );
       })}
     </Container>
   );

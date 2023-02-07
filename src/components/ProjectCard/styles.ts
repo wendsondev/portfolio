@@ -20,10 +20,9 @@ export const Container = styled.article`
   background: ${({ theme }) => theme.colors.background.secondary};
 
   img {
-    position: absolute;
-    top: 0;
-    left: 0;
     transition: 150ms;
+    object-fit: cover;
+    border-radius: 0.5rem;
   }
 
   &:hover {
@@ -32,6 +31,19 @@ export const Container = styled.article`
     img {
       opacity: 5%;
       z-index: -1;
+    }
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.sizes.md}) {
+    width: 100%;
+    height: 70vh;
+
+    &:hover img {
+      opacity: 1;
+    }
+
+    img {
+      position: relative !important;
     }
   }
 `;

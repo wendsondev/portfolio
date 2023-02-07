@@ -8,7 +8,7 @@ import {
   Title,
 } from './styles';
 
-type ProjectCardProps = {
+export type ProjectCardProps = {
   title: string;
   description: string;
   languages: string[];

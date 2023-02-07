@@ -11,40 +11,57 @@ export const Container = styled.main`
   background: ${({ theme }) => theme.colors.background.primary};
 `;
 
+export const Title = styled.h1`
+  font-size: 4rem;
+  font-weight: 900;
+
+  background: ${(props) => props.theme.colors.gradient};
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  span {
+    display: block;
+
+    font-size: 2.5rem;
+    font-weight: 700;
+
+    background: ${(props) => props.theme.colors.text.primary};
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.sizes.md}) {
+    font-size: 2.5rem;
+
+    span {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.sizes.sm}) {
+    font-size: 2.25rem;
+
+    span {
+      font-size: 1.5rem;
+    }
+  }
+`;
+
 export const Welcome = styled.div`
   height: 80vh;
   display: flex;
 
   justify-content: space-around;
   align-items: center;
+  padding: 0 1rem;
 
   div {
     max-width: 29rem;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-
-    h1 {
-      font-size: 4rem;
-      font-weight: 900;
-
-      background: ${(props) => props.theme.colors.gradient};
-      background-clip: text;
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-
-      span {
-        display: block;
-
-        font-size: 2.5rem;
-        font-weight: 700;
-
-        background: ${(props) => props.theme.colors.text.primary};
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-    }
 
     p {
       font-size: 1.25rem;
@@ -57,6 +74,25 @@ export const Welcome = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  @media screen and (max-width: ${(props) => props.theme.sizes.md}) {
+    height: 50vh;
+
+    aside {
+      display: none;
+    }
+
+    > div {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.sizes.sm}) {
+    > div p {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -73,7 +109,7 @@ export const About = styled.div`
   gap: 2rem;
 
   margin: 8rem 0;
-  padding: 2rem 0;
+  padding: 2rem;
 
   background: ${({ theme }) => theme.colors.background.secondary};
 
@@ -92,6 +128,13 @@ export const About = styled.div`
     color: ${({ theme }) => theme.colors.text.secondary};
     max-width: 56.5rem;
   }
+
+  @media screen and (max-width: ${({ theme }) => theme.sizes.md}) {
+    text-align: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 4rem 0;
+  }
 `;
 
 export const Skills = styled.section`
@@ -102,6 +145,10 @@ export const Skills = styled.section`
   gap: 2rem;
 
   margin: 8rem 0;
+
+  @media screen and (max-width: ${({ theme }) => theme.sizes.md}) {
+    margin: 4rem 0;
+  }
 `;
 
 export const Projects = styled.section`
@@ -112,6 +159,10 @@ export const Projects = styled.section`
   gap: 2rem;
 
   margin: 8rem 0;
+
+  @media screen and (max-width: ${({ theme }) => theme.sizes.md}) {
+    margin: 4rem 0;
+  }
 `;
 
 export const SwiperContainer = styled.div`
@@ -121,32 +172,9 @@ export const SwiperContainer = styled.div`
   overflow: hidden;
   position: relative;
 
-  border-top: 0.25rem solid ${({ theme }) => theme.colors.text.quaternary};
-  border-radius: 0.5rem;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    z-index: 2;
-
-    height: 10%;
-
-    border-left: 0.25rem solid ${({ theme }) => theme.colors.text.quaternary};
-    border-radius: 0 0 0.5rem 0.5rem;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    right: 0;
-    z-index: 2;
-
-    height: 10%;
-
-    border-left: 0.25rem solid ${({ theme }) => theme.colors.text.quaternary};
-    border-radius: 0 0 0.5rem 0.5rem;
+  @media screen and (max-width: ${({ theme }) => theme.sizes.md}) {
+    width: 100%;
+    padding: 0 1.5rem;
   }
 `;
 
@@ -158,6 +186,7 @@ export const Contacts = styled.section`
   gap: 2rem;
 
   margin: 8rem 0;
+  padding: 0 1rem;
 
   > div {
     display: grid;
@@ -166,8 +195,17 @@ export const Contacts = styled.section`
   }
 
   @media screen and (max-width: ${({ theme }) => theme.sizes.md}) {
+    padding: 0 2rem;
+    margin: 4rem 0;
+
     > div {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.sizes.sm}) {
+    > div {
+      width: 100%;
     }
   }
 `;

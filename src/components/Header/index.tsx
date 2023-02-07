@@ -1,11 +1,14 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { MdClose, MdMenu } from 'react-icons/md';
+import { useTheme } from 'styled-components';
 import { Logo } from '../Logo';
+import { ThemeSwitch } from '../ThemeSwitch';
 import { Container, Link, MobileMenu, Navbar } from './styles';
 
 export function Header() {
   const [menuMobileIsOpen, setMenuMobileIsOpen] = useState(false);
+  const { colors } = useTheme();
   const { asPath } = useRouter();
 
   useEffect(() => {
@@ -35,6 +38,8 @@ export function Header() {
           <li>
             <Link href="#contacts">Contacts</Link>
           </li>
+
+          <ThemeSwitch showLabel={false} bg={colors.background.primary} />
         </ul>
       </Navbar>
     </Container>

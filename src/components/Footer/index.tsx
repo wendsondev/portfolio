@@ -11,8 +11,8 @@ import {
 
 export function Footer() {
   return (
-    <Container id="contacts">
-      <Logo size={3.5} />
+    <Container>
+      <Logo size={3} closed />
 
       <Navbar>
         <ul>
