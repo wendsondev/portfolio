@@ -102,12 +102,6 @@ export const Skills = styled.section`
   gap: 2rem;
 
   margin: 8rem 0;
-
-  h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: ${({ theme }) => theme.colors.text.quaternary};
-  }
 `;
 
 export const Projects = styled.section`
@@ -118,12 +112,6 @@ export const Projects = styled.section`
   gap: 2rem;
 
   margin: 8rem 0;
-
-  h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: ${({ theme }) => theme.colors.text.quaternary};
-  }
 `;
 
 export const SwiperContainer = styled.div`

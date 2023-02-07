@@ -64,7 +64,7 @@ export default function Home() {
 
       <div id="skills">
         <Skills>
-          <h2>My Skills</h2>
+          <SubTitle>My Skills</SubTitle>
 
           <SwiperContainer>
             <SwiperSkill slides={fakeSkills} />
@@ -74,7 +74,7 @@ export default function Home() {
 
       <div id="projects">
         <Projects>
-          <h2>My Projects</h2>
+          <SubTitle>My Projects</SubTitle>
 
           <SwiperContainer>
             <SwiperProject slides={fakeProjects} />
