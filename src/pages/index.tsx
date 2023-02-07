@@ -1,13 +1,16 @@
-import { ProjectCard } from '@components/ProjectCard';
-import { SkillCard } from '@components/SkillCard';
+import { SocialLink } from '@components/SocialLink';
 import { SwiperProject } from '@components/SwiperProject';
 import { SwiperSkill } from '@components/SwiperSkill';
 import { ThemeSwitch } from '@components/ThemeSwitch';
+import { RiLinkedinFill } from 'react-icons/ri';
+import { VscGithubAlt, VscMail, VscTwitter } from 'react-icons/vsc';
 import {
   About,
+  Contacts,
   Container,
   Projects,
   Skills,
+  SubTitle,
   SwiperContainer,
   Welcome,
 } from './styles.home';
@@ -77,6 +80,41 @@ export default function Home() {
             <SwiperProject slides={fakeProjects} />
           </SwiperContainer>
         </Projects>
+      </div>
+
+      <div id="contacts">
+        <Contacts>
+          <SubTitle>My Contacts</SubTitle>
+
+          <div>
+            <SocialLink
+              Icon={VscGithubAlt}
+              target="_blank"
+              name="wendsondev"
+              href="https://github.com/wendsondev"
+            />
+            <SocialLink
+              Icon={RiLinkedinFill}
+              target="_blank"
+              name="wendsondev"
+              href="https://www.linkedin.com/in/wendsondev/"
+            />
+
+            <SocialLink
+              Icon={VscMail}
+              target="_blank"
+              name="wendson.dev@gmail.com"
+              href="mailto:wendson.dev@gmail.com"
+            />
+
+            <SocialLink
+              Icon={VscTwitter}
+              target="_blank"
+              name="wendsondev"
+              href="https://twitter.com/wendsondev/"
+            />
+          </div>
+        </Contacts>
       </div>
     </Container>
   );

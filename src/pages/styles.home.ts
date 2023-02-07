@@ -60,6 +60,12 @@ export const Welcome = styled.div`
   }
 `;
 
+export const SubTitle = styled.h2`
+  font-size: 2rem;
+  font-weight: 700;
+  color: ${({ theme }) => theme.colors.text.quaternary};
+`;
+
 export const About = styled.div`
   display: flex;
   justify-content: center;
@@ -153,5 +159,27 @@ export const SwiperContainer = styled.div`
 
     border-left: 0.25rem solid ${({ theme }) => theme.colors.text.quaternary};
     border-radius: 0 0 0.5rem 0.5rem;
+  }
+`;
+
+export const Contacts = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+
+  margin: 8rem 0;
+
+  > div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  @media screen and (max-width: ${({ theme }) => theme.sizes.md}) {
+    > div {
+      grid-template-columns: 1fr;
+    }
   }
 `;
