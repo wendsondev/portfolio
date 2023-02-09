@@ -9,6 +9,7 @@ import {
 } from './styles';
 
 export type ProjectCardProps = {
+  imageUrl: string;
   title: string;
   description: string;
   languages: string[];
@@ -17,6 +18,7 @@ export type ProjectCardProps = {
 };
 
 export function ProjectCard({
+  imageUrl,
   title,
   description,
   languages,
@@ -25,7 +27,7 @@ export function ProjectCard({
 }: ProjectCardProps) {
   return (
     <Container>
-      <Image fill src={'https://github.com/wendson13.png'} alt={title} />
+      <Image fill src={imageUrl} alt={title} />
 
       <Title>{title}</Title>
       <Languages>{languages.join(', ')}</Languages>

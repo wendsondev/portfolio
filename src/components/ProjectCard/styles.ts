@@ -51,6 +51,7 @@ export const Container = styled.article`
 export const Title = styled.strong`
   font-size: 2rem;
   font-weight: 700;
+  text-transform: capitalize;
   cursor: default;
   color: ${({ theme }) => theme.colors.text.quaternary};
 `;

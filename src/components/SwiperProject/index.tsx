@@ -44,6 +44,7 @@ export function SwiperProject({ slides }: SwiperProps) {
           <SwiperSlide key={index}>
             <ProjectCard
               key={index}
+              imageUrl={slide.imageUrl}
               title={slide.title}
               description={slide.description}
               languages={slide.languages}

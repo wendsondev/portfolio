@@ -1,4 +1,4 @@
-import { Pagination } from 'swiper';
+import { Autoplay, Pagination } from 'swiper';
 import { SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -19,6 +19,10 @@ export function SwiperSkill({ slides }: SwiperProps) {
       loop
       slidesPerView={1}
       spaceBetween={16}
+      autoplay={{
+        delay: 4000,
+        disableOnInteraction: false,
+      }}
       breakpoints={{
         500: {
           slidesPerView: 2,
@@ -36,7 +40,7 @@ export function SwiperSkill({ slides }: SwiperProps) {
           slidesPerView: 5,
         },
       }}
-      modules={[Pagination]}
+      modules={[Pagination, Autoplay]}
     >
       {slides.map((slide, index) => {
         return (

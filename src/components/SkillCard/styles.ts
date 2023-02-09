@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  width: fit-content;
+  width: 22rem;
+  height: 22rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,7 +13,7 @@ export const Container = styled.div`
   background: ${(props) => props.theme.colors.background.secondary};
 
   img {
-    width: 100%;
+    width: 10rem;
     object-fit: contain;
   }
 

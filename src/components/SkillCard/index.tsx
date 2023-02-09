@@ -10,7 +10,7 @@ export function SkillCard({ imageUrl, skill }: SkillCardProps) {
   return (
     <Container>
       <Image src={imageUrl} alt={skill} width={160} height={160} />
-      <span>Styled Components</span>
+      <span>{skill}</span>
     </Container>
   );
 }

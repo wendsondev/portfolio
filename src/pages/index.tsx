@@ -1,7 +1,11 @@
+import { ProjectCardProps } from '@components/ProjectCard';
 import { SocialLink } from '@components/SocialLink';
 import { SwiperProject } from '@components/SwiperProject';
 import { SwiperSkill } from '@components/SwiperSkill';
 import { ThemeSwitch } from '@components/ThemeSwitch';
+import { api } from '@services/axios';
+import { skills } from '@utils/skills';
+import { GetStaticProps } from 'next';
 import { RiLinkedinFill } from 'react-icons/ri';
 import { VscGithubAlt, VscMail, VscTwitter } from 'react-icons/vsc';
 import {
@@ -16,24 +20,11 @@ import {
   Welcome,
 } from './styles.home';
 
-export default function Home() {
-  const fakeSkills = Array.from({ length: 15 }).map((_, i) => {
-    return {
-      imageUrl: 'https://github.com/wendson13.png',
-      skill: 'Typescript' + i,
-    };
-  });
+type Props = {
+  projects: ProjectCardProps[];
+};
 
-  const fakeProjects = Array.from({ length: 15 }).map((_, i) => {
-    return {
-      title: `Project ${i + 1}`,
-      description: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incid`,
-      github: `https://github.com/wendson13/project${i + 1}`,
-      languages: ['JavaScript', 'TypeScript'],
-      preview: `https://github.com/wendson13/`,
-    };
-  });
-
+export default function Home({ projects }: Props) {
   return (
     <Container>
       <Welcome>
@@ -62,7 +53,7 @@ export default function Home() {
           <SubTitle>My Skills</SubTitle>
 
           <SwiperContainer>
-            <SwiperSkill slides={fakeSkills} />
+            <SwiperSkill slides={skills} />
           </SwiperContainer>
         </Skills>
       </div>
@@ -72,7 +63,7 @@ export default function Home() {
           <SubTitle>My Projects</SubTitle>
 
           <SwiperContainer>
-            <SwiperProject slides={fakeProjects} />
+            <SwiperProject slides={projects} />
           </SwiperContainer>
         </Projects>
       </div>
@@ -114,3 +105,47 @@ export default function Home() {
     </Container>
   );
 }
+
+type Project = {
+  name: string;
+  full_name: string;
+  description: string;
+  homepage: string;
+  html_url: string;
+  topics: string[];
+};
+
+type ProjectsData = {
+  items: Project[];
+};
+
+export const getStaticProps: GetStaticProps = async () => {
+  const { data: dataProjects } = await api.get<ProjectsData>(
+    process.env.NEXT_PROJECTS_URL
+  );
+
+  const projects = dataProjects.items.map((project) => {
+    return {
+      imageUrl:
+        process.env.NEXT_CONTENT_URL +
+        project.full_name +
+        process.env.NEXT_COVER_URL,
+
+      title: project.name.replace('-', ' '),
+      description: project.description,
+      github: project.html_url,
+      languages: project.topics
+        .filter((topic) => topic !== 'wendsondev')
+        .slice(0, 3),
+
+      preview: project.homepage,
+    };
+  });
+
+  return {
+    props: {
+      projects,
+    },
+    revalidate: 60 * 60 * 24, // 24h
+  };
+};
