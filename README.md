@@ -7,7 +7,7 @@
 - [Typescript](https://www.typescriptlang.org/)
 - [Next JS](https://nextjs.org/)
 - [Next Translate](https://github.com/aralroca/next-translate)
-- [Styled Components](https://tailwindcss.com/)
+- [Styled Components](https://styled-components.com/)
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [Axios](https://github.com/axios/axios)
 - [Swiper JS](https://swiperjs.com/)
