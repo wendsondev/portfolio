@@ -6,6 +6,7 @@ import { ThemeSwitch } from '@components/ThemeSwitch';
 import { api } from '@services/axios';
 import { skills } from '@utils/skills';
 import { GetStaticProps } from 'next';
+import useTranslation from 'next-translate/useTranslation';
 import { RiLinkedinFill } from 'react-icons/ri';
 import { VscGithubAlt, VscMail, VscTwitter } from 'react-icons/vsc';
 import {
@@ -25,6 +26,8 @@ type Props = {
 };
 
 export default function Home({ projects }: Props) {
+  const { t } = useTranslation('common');
+
   return (
     <Container>
       <Welcome>
@@ -32,7 +35,7 @@ export default function Home({ projects }: Props) {
           <Title>
             Wendson Sousa <span>Front-End Developer</span>
           </Title>
-          <p>Specialized in creating modern websites and web applications.</p>
+          <p>{t('welcome')}</p>
         </div>
 
         <aside>
@@ -44,13 +47,13 @@ export default function Home({ projects }: Props) {
         <About>
           <span>WS</span>
 
-          <p>{`About a year now, I've been building web applications mainly using React JS with typescript. I'm Currently studying Computer Science at UniFavip Wyden.`}</p>
+          <p>{t('about')}</p>
         </About>
       </div>
 
       <div id="skills">
         <Skills>
-          <SubTitle>My Skills</SubTitle>
+          <SubTitle>{t('skills')}</SubTitle>
 
           <SwiperContainer>
             <SwiperSkill slides={skills} />
@@ -60,7 +63,7 @@ export default function Home({ projects }: Props) {
 
       <div id="projects">
         <Projects>
-          <SubTitle>My Projects</SubTitle>
+          <SubTitle>{t('projects')}</SubTitle>
 
           <SwiperContainer>
             <SwiperProject slides={projects} />
@@ -70,7 +73,7 @@ export default function Home({ projects }: Props) {
 
       <div id="contacts">
         <Contacts>
-          <SubTitle>My Contacts</SubTitle>
+          <SubTitle>{t('contacts')}</SubTitle>
 
           <div>
             <SocialLink

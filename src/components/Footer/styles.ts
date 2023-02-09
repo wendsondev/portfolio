@@ -16,20 +16,14 @@ export const Container = styled.footer`
   }
 `;
 
-export const Navbar = styled.div`
+export const Credit = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: flex-end;
 
-  ul {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    overflow: hidden;
-    list-style: none;
-
-    transition: 150ms;
+  small {
+    color: ${({ theme }) => theme.colors.text.tertiary};
   }
 
   @media screen and (max-width: ${({ theme }) => theme.sizes.lg}) {

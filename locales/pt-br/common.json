@@ -1,0 +1,14 @@
+{
+  "header-about": "Sobre mim",
+  "header-skills": "Habilidades",
+  "header-projects": "Projetos",
+  "header-contacts": "Contatos",
+  "dark": "Tema Escuro",
+  "light": "Tema Claro",
+  "welcome": "Especializado na criação de sites modernos e aplicações web.",
+  "about": "Há cerca de um ano, venho construindo aplicativos da web principalmente usando React JS com TypeScript, e atualmente estou cursando Ciência da Computação na UniFavip Wyden.",
+  "skills": "Minhas habilidades",
+  "projects": "Meus Projetos",
+  "contacts": "Contatos",
+  "copyright": "© 2022 Wendson Sousa. Todos os direitos reservados."
+}

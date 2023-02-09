@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { MdClose, MdMenu } from 'react-icons/md';
@@ -10,6 +11,7 @@ export function Header() {
   const [menuMobileIsOpen, setMenuMobileIsOpen] = useState(false);
   const { colors } = useTheme();
   const { asPath } = useRouter();
+  const { t } = useTranslation('common');
 
   useEffect(() => {
     if (menuMobileIsOpen) {
@@ -27,16 +29,16 @@ export function Header() {
         </MobileMenu>
         <ul>
           <li>
-            <Link href="#about">About me</Link>
+            <Link href="#about">{t('header-about')}</Link>
           </li>
           <li>
-            <Link href="#skills">Skills</Link>
+            <Link href="#skills">{t('header-skills')}</Link>
           </li>
           <li>
-            <Link href="#projects">Projects</Link>
+            <Link href="#projects">{t('header-projects')}</Link>
           </li>
           <li>
-            <Link href="#contacts">Contacts</Link>
+            <Link href="#contacts">{t('header-contacts')}</Link>
           </li>
 
           <ThemeSwitch showLabel={false} bg={colors.background.primary} />

@@ -1,0 +1,14 @@
+{
+  "header-about": "About me",
+  "header-skills": "Skills",
+  "header-projects": "Projects",
+  "header-contacts": "Contacts",
+  "dark": "Dark Theme",
+  "light": "Light Theme",
+  "welcome": "Specialized in creating modern websites and web applications.",
+  "about": "About a year now, I've been building web applications mainly using React JS with TypeScript, and I'm Currently studying Computer Science at UniFavip Wyden.",
+  "skills": "My skills",
+  "projects": "My projects",
+  "contacts": "Contacts",
+  "copyright": "Copyright © 2022 Wendson Sousa. All rights reserved"
+}

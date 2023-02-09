@@ -1,35 +1,17 @@
+import useTranslation from 'next-translate/useTranslation';
 import { RiLinkedinFill } from 'react-icons/ri';
 import { VscGithubAlt } from 'react-icons/vsc';
 import { Logo } from '../Logo';
-import {
-  Container,
-  Link,
-  Navbar,
-  SocialLink,
-  SocialLinkContainer,
-} from './styles';
+import { Container, Credit, SocialLink, SocialLinkContainer } from './styles';
 
 export function Footer() {
+  const { t } = useTranslation('common');
+
   return (
     <Container>
       <Logo size={3} closed />
 
-      <Navbar>
-        <ul>
-          <li>
-            <Link href="#about">About me</Link>
-          </li>
-          <li>
-            <Link href="#skills">Skills</Link>
-          </li>
-          <li>
-            <Link href="#projects">Projects</Link>
-          </li>
-          <li>
-            <Link href="#contacts">Contacts</Link>
-          </li>
-        </ul>
-
+      <Credit>
         <SocialLinkContainer>
           <SocialLink
             title="github"
@@ -47,7 +29,9 @@ export function Footer() {
             <RiLinkedinFill size={32} />
           </SocialLink>
         </SocialLinkContainer>
-      </Navbar>
+
+        <small>{t('copyright')}</small>
+      </Credit>
     </Container>
   );
 }
