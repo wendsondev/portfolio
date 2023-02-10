@@ -59,6 +59,7 @@ export const Title = styled.strong`
 export const Languages = styled.span`
   font-weight: 700;
   cursor: default;
+  text-transform: capitalize;
   color: ${({ theme }) => theme.colors.text.secondary};
 `;
 

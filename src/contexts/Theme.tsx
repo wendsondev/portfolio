@@ -9,7 +9,7 @@ type ContextThemeProps = {
 export const ContextTheme = createContext(() => {});
 
 export function ContextThemeProvider({ children }: ContextThemeProps) {
-  const [theme, setTheme] = useState(light);
+  const [theme, setTheme] = useState(dark);
 
   const toggleTheme = () => {
     const newTheme = theme?.title === 'dark' ? light : dark;
@@ -19,9 +19,8 @@ export function ContextThemeProvider({ children }: ContextThemeProps) {
 
   useEffect(() => {
     const storageTheme = localStorage.getItem('theme');
-    const preferIsDark = window.matchMedia('(prefers-color-scheme: dark)');
 
-    const newTheme = storageTheme === 'dark' || preferIsDark ? dark : light;
+    const newTheme = storageTheme === 'light' ? light : dark;
     setTheme(newTheme);
   }, []);
 
