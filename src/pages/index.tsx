@@ -19,7 +19,7 @@ import {
   SwiperContainer,
   Title,
   Welcome,
-} from './styles.home';
+} from '../styles/styles.home';
 
 type Props = {
   projects: ProjectCardProps[];
