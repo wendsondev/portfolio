@@ -34,8 +34,12 @@ export function ProjectCard({
       <Description>{description}</Description>
 
       <BoxLinks>
-        <Link href={github}>Github</Link>
-        <Link href={preview}>Preview</Link>
+        <Link target="_blank" href={github}>
+          Github
+        </Link>
+        <Link target="_blank" href={preview}>
+          Preview
+        </Link>
       </BoxLinks>
     </Container>
   );

@@ -134,7 +134,7 @@ export const getStaticProps: GetStaticProps = async () => {
         project.full_name +
         process.env.NEXT_COVER_URL,
 
-      title: project.name.replace('-', ' '),
+      title: project.name.replaceAll('-', ' '),
       description: project.description,
       github: project.html_url,
       languages: project.topics

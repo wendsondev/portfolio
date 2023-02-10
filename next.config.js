@@ -8,7 +8,7 @@ const nextConfig = {
     styledComponents: true,
   },
   images: {
-    domains: ['wendsondev.com', 'github.com'],
+    domains: ['wendsondev.com', process.env.NEXT_HOSTNAME],
   },
 };
 
