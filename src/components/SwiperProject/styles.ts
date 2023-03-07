@@ -10,6 +10,7 @@ export const Container = styled(SwiperPrimitive)`
     display: flex;
     justify-content: center;
     align-items: center;
+    user-select: none;
   }
 
   .swiper-pagination-bullet {
