@@ -14,13 +14,12 @@ export function SwiperProject({ slides }: SwiperProps) {
   return (
     <Container
       pagination={{
-        dynamicBullets: true,
+        clickable: true,
       }}
-      loop
       slidesPerView={1}
       spaceBetween={16}
       autoplay={{
-        delay: 8000,
+        delay: 4000,
         disableOnInteraction: false,
       }}
       breakpoints={{
@@ -39,11 +38,10 @@ export function SwiperProject({ slides }: SwiperProps) {
       }}
       modules={[Pagination, Autoplay]}
     >
-      {slides.map((slide, index) => {
+      {slides.map((slide) => {
         return (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={slide.title}>
             <ProjectCard
-              key={index}
               imageUrl={slide.imageUrl}
               title={slide.title}
               description={slide.description}
