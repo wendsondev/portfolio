@@ -1,0 +1,577 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+	--text-primary: #1a1a2e;
+	--text-secondary: #8888aa;
+	--text-tertiary: #6a6a8a;
+	--text-accent: #00ccb8;
+	--bg-primary: #e8e8f0;
+	--bg-secondary: #d0d0de;
+	--bg-tertiary: #c0c0d0;
+	--gradient-from: #00ccb8;
+	--gradient-to: #cc0088;
+	--neon-cyan: #00ffe5;
+	--neon-magenta: #ff00aa;
+	--neon-cyan-muted: #00ccb8;
+	--neon-magenta-muted: #cc0088;
+	--steel: #2a2a3a;
+	--background: var(--bg-primary);
+	--foreground: var(--text-primary);
+	--popover: var(--bg-secondary);
+	--popover-foreground: var(--text-primary);
+	--primary: var(--text-accent);
+	--primary-foreground: var(--bg-primary);
+	--secondary: var(--bg-secondary);
+	--secondary-foreground: var(--text-primary);
+	--muted: var(--bg-tertiary);
+	--muted-foreground: var(--text-tertiary);
+	--accent: var(--bg-secondary);
+	--accent-foreground: var(--text-accent);
+	--destructive: #cc0044;
+	--border: color-mix(in srgb, var(--text-accent) 20%, transparent);
+	--input: color-mix(in srgb, var(--text-accent) 20%, transparent);
+	--ring: var(--text-accent);
+	--radius: 0px;
+}
+
+.dark {
+	--text-primary: #e8e8f0;
+	--text-secondary: #9999bb;
+	--text-tertiary: #6a6a8a;
+	--text-accent: #00ffe5;
+	--bg-primary: #0a0a0f;
+	--bg-secondary: #12121c;
+	--bg-tertiary: #2a2a3a;
+	--gradient-from: #00ffe5;
+	--gradient-to: #ff00aa;
+	--neon-cyan: #00ffe5;
+	--neon-magenta: #ff00aa;
+	--neon-cyan-muted: #00ffe5;
+	--neon-magenta-muted: #ff00aa;
+	--steel: #2a2a3a;
+	--background: var(--bg-primary);
+	--foreground: var(--text-primary);
+	--popover: var(--bg-secondary);
+	--popover-foreground: var(--text-primary);
+	--primary: var(--text-accent);
+	--primary-foreground: var(--bg-primary);
+	--secondary: var(--bg-secondary);
+	--secondary-foreground: var(--text-primary);
+	--muted: var(--bg-tertiary);
+	--muted-foreground: var(--text-tertiary);
+	--accent: var(--bg-secondary);
+	--accent-foreground: var(--text-accent);
+	--destructive: #ff0044;
+	--border: color-mix(in srgb, var(--text-accent) 20%, transparent);
+	--input: color-mix(in srgb, var(--text-accent) 20%, transparent);
+	--ring: var(--text-accent);
+}
+
+@theme inline {
+	--color-text-primary: var(--text-primary);
+	--color-text-secondary: var(--text-secondary);
+	--color-text-tertiary: var(--text-tertiary);
+	--color-text-accent: var(--text-accent);
+	--color-bg-primary: var(--bg-primary);
+	--color-bg-secondary: var(--bg-secondary);
+	--color-bg-tertiary: var(--bg-tertiary);
+	--color-gradient-from: var(--gradient-from);
+	--color-gradient-to: var(--gradient-to);
+	--color-neon-cyan: var(--neon-cyan);
+	--color-neon-magenta: var(--neon-magenta);
+	--color-steel: var(--steel);
+	--font-sans: var(--font-sans);
+	--font-display: var(--font-display);
+	--color-ring: var(--ring);
+	--color-input: var(--input);
+	--color-border: var(--border);
+	--color-destructive: var(--destructive);
+	--color-accent-foreground: var(--accent-foreground);
+	--color-accent: var(--accent);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-muted: var(--muted);
+	--color-secondary-foreground: var(--secondary-foreground);
+	--color-secondary: var(--secondary);
+	--color-primary-foreground: var(--primary-foreground);
+	--color-primary: var(--primary);
+	--color-popover-foreground: var(--popover-foreground);
+	--color-popover: var(--popover);
+	--color-foreground: var(--foreground);
+	--color-background: var(--background);
+	--radius-sm: calc(var(--radius) * 0.6);
+	--radius-md: calc(var(--radius) * 0.8);
+	--radius-lg: var(--radius);
+	--radius-xl: calc(var(--radius) * 1.4);
+	--radius-2xl: calc(var(--radius) * 1.8);
+	--radius-3xl: calc(var(--radius) * 2.2);
+	--radius-4xl: calc(var(--radius) * 2.6);
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-color: var(--bg-primary);
+	color: var(--text-primary);
+	font-family: var(--font-sans), "IBM Plex Mono", monospace;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--font-display), "Rajdhani", system-ui, sans-serif;
+	text-transform: uppercase;
+	letter-spacing: -0.02em;
+}
+
+/* Neon gradient text */
+.gradient-text {
+	background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.text-gradient {
+	background: linear-gradient(135deg, var(--gradient-from), var(--gradient-to));
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.scrollbar-hide {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+	display: none;
+}
+
+/* CRT scanlines overlay */
+.crt-scanlines::after {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: 50;
+	pointer-events: none;
+	background: repeating-linear-gradient(
+		0deg,
+		transparent,
+		transparent 2px,
+		rgba(0, 0, 0, 0.03) 2px,
+		rgba(0, 0, 0, 0.03) 4px
+	);
+}
+
+.dark .crt-scanlines::after {
+	background: repeating-linear-gradient(
+		0deg,
+		transparent,
+		transparent 2px,
+		rgba(0, 0, 0, 0.06) 2px,
+		rgba(0, 0, 0, 0.06) 4px
+	);
+}
+
+/* Vignette overlay */
+.vignette::before {
+	content: "";
+	position: fixed;
+	inset: 0;
+	z-index: 49;
+	pointer-events: none;
+	background: radial-gradient(
+		ellipse at center,
+		transparent 50%,
+		rgba(0, 0, 0, 0.3) 100%
+	);
+}
+
+/* Grid background */
+.cyber-grid {
+	background-image:
+		linear-gradient(var(--text-accent) 1px, transparent 1px),
+		linear-gradient(90deg, var(--text-accent) 1px, transparent 1px);
+	background-size: 60px 60px;
+	background-position: center;
+	opacity: 0.04;
+}
+
+/* Hero chromatic aberration text */
+.chromatic-text {
+	text-shadow:
+		-2px 0 var(--neon-cyan-muted),
+		2px 0 var(--neon-magenta-muted);
+}
+
+.dark .chromatic-text {
+	text-shadow:
+		-3px 0 rgba(0, 255, 229, 0.6),
+		3px 0 rgba(255, 0, 170, 0.6);
+}
+
+/* Neon glow effects */
+.neon-glow-cyan {
+	box-shadow:
+		0 0 8px var(--neon-cyan-muted),
+		0 0 20px color-mix(in srgb, var(--neon-cyan) 20%, transparent);
+}
+
+.dark .neon-glow-cyan {
+	box-shadow:
+		0 0 8px var(--neon-cyan),
+		0 0 24px color-mix(in srgb, var(--neon-cyan) 30%, transparent);
+}
+
+.neon-glow-magenta {
+	box-shadow:
+		0 0 8px var(--neon-magenta-muted),
+		0 0 20px color-mix(in srgb, var(--neon-magenta) 20%, transparent);
+}
+
+.dark .neon-glow-magenta {
+	box-shadow:
+		0 0 8px var(--neon-magenta),
+		0 0 24px color-mix(in srgb, var(--neon-magenta) 30%, transparent);
+}
+
+.neon-text-cyan {
+	text-shadow: 0 0 8px var(--neon-cyan-muted);
+}
+
+.dark .neon-text-cyan {
+	text-shadow:
+		0 0 10px var(--neon-cyan),
+		0 0 30px color-mix(in srgb, var(--neon-cyan) 40%, transparent);
+}
+
+.neon-text-magenta {
+	text-shadow: 0 0 8px var(--neon-magenta-muted);
+}
+
+.dark .neon-text-magenta {
+	text-shadow:
+		0 0 10px var(--neon-magenta),
+		0 0 30px color-mix(in srgb, var(--neon-magenta) 40%, transparent);
+}
+
+/* Neon border glow */
+.neon-border {
+	border: 1px solid var(--neon-cyan-muted);
+	box-shadow:
+		inset 0 0 12px color-mix(in srgb, var(--neon-cyan) 8%, transparent),
+		0 0 12px color-mix(in srgb, var(--neon-cyan) 8%, transparent);
+}
+
+.dark .neon-border {
+	border-color: var(--neon-cyan);
+	box-shadow:
+		inset 0 0 16px color-mix(in srgb, var(--neon-cyan) 10%, transparent),
+		0 0 16px color-mix(in srgb, var(--neon-cyan) 10%, transparent);
+}
+
+/* Corner bracket decorations */
+.corner-brackets {
+	position: relative;
+}
+
+.corner-brackets::before,
+.corner-brackets::after {
+	content: "";
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	border-color: var(--text-accent);
+	pointer-events: none;
+}
+
+.corner-brackets::before {
+	top: -1px;
+	left: -1px;
+	border-top: 2px solid;
+	border-left: 2px solid;
+}
+
+.corner-brackets::after {
+	bottom: -1px;
+	right: -1px;
+	border-bottom: 2px solid;
+	border-right: 2px solid;
+}
+
+/* Glitch hover effect */
+@keyframes glitch {
+	0%,
+	100% {
+		transform: translate(0);
+		opacity: 1;
+	}
+	20% {
+		transform: translate(-2px, 1px);
+		opacity: 0.9;
+	}
+	40% {
+		transform: translate(2px, -1px);
+		opacity: 1;
+	}
+	60% {
+		transform: translate(-1px, -1px);
+		opacity: 0.95;
+	}
+	80% {
+		transform: translate(1px, 1px);
+		opacity: 1;
+	}
+}
+
+.glitch-hover:hover {
+	animation: glitch 0.3s ease-in-out;
+}
+
+/* Neon pulse animation */
+@keyframes neon-pulse {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0.6;
+	}
+}
+
+.animate-neon-pulse {
+	animation: neon-pulse 2s ease-in-out infinite;
+}
+
+/* Slide from edge animations */
+@keyframes slide-in-left {
+	from {
+		opacity: 0;
+		transform: translateX(-40px);
+	}
+	70% {
+		transform: translateX(4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slide-in-right {
+	from {
+		opacity: 0;
+		transform: translateX(40px);
+	}
+	70% {
+		transform: translateX(-4px);
+	}
+	to {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
+@keyframes slide-in-up {
+	from {
+		opacity: 0;
+		transform: translateY(30px);
+	}
+	70% {
+		transform: translateY(-3px);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+/* Staggered hero animations */
+.anim-stagger-0 {
+	animation: slide-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0ms both;
+}
+
+.anim-stagger-1 {
+	animation: slide-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 150ms both;
+}
+
+.anim-stagger-2 {
+	animation: slide-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 300ms both;
+}
+
+.anim-stagger-3 {
+	animation: slide-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 450ms both;
+}
+
+.anim-stagger-4 {
+	animation: slide-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) 600ms both;
+}
+
+/* Pulsing dot for status indicator */
+@keyframes pulse-dot {
+	0%,
+	100% {
+		opacity: 1;
+		box-shadow: 0 0 6px var(--neon-cyan);
+	}
+	50% {
+		opacity: 0.4;
+		box-shadow: 0 0 2px var(--neon-cyan);
+	}
+}
+
+.animate-pulse-dot {
+	animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* Scroll indicator */
+@keyframes bounce-down {
+	0%,
+	100% {
+		transform: translateY(0);
+	}
+	50% {
+		transform: translateY(8px);
+	}
+}
+
+.animate-bounce-down {
+	animation: bounce-down 2s ease-in-out infinite;
+}
+
+/* Data panel card */
+.data-panel {
+	background: color-mix(in srgb, var(--bg-secondary) 80%, transparent);
+	border: 1px solid color-mix(in srgb, var(--text-accent) 20%, transparent);
+	transition: all 0.25s ease;
+}
+
+.data-panel:hover {
+	border-color: var(--text-accent);
+	box-shadow: 0 0 16px color-mix(in srgb, var(--text-accent) 15%, transparent);
+}
+
+/* Skill hover glow */
+.skill-glow {
+	transition: all 0.2s ease;
+}
+
+.skill-glow:hover {
+	transform: translateY(-2px);
+	border-color: var(--text-accent);
+	box-shadow: 0 0 12px color-mix(in srgb, var(--text-accent) 20%, transparent);
+}
+
+/* Nav link animated underline */
+.nav-link {
+	position: relative;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 0.75rem;
+}
+
+.nav-link::after {
+	content: "";
+	position: absolute;
+	bottom: -2px;
+	left: 0;
+	width: 100%;
+	height: 1px;
+	background: var(--text-accent);
+	box-shadow: 0 0 6px var(--text-accent);
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+	transform: scaleX(1);
+	transform-origin: left;
+}
+
+/* Image blur-to-sharp */
+.img-blur-load {
+	filter: blur(8px);
+	transition: filter 0.4s ease;
+}
+
+.img-blur-load.loaded {
+	filter: blur(0);
+}
+
+/* Section alternate background */
+.section-alt {
+	background-color: color-mix(in srgb, var(--bg-secondary) 40%, transparent);
+}
+
+/* HUD line decoration */
+.hud-line {
+	height: 1px;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		var(--text-accent),
+		transparent
+	);
+	opacity: 0.3;
+}
+
+/* Terminal cursor blink */
+@keyframes cursor-blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
+.terminal-cursor::after {
+	content: "_";
+	animation: cursor-blink 1s step-end infinite;
+	color: var(--text-accent);
+}
+
+/* Flicker animation for hero */
+@keyframes flicker {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	92% {
+		opacity: 1;
+	}
+	93% {
+		opacity: 0.7;
+	}
+	94% {
+		opacity: 1;
+	}
+	96% {
+		opacity: 0.8;
+	}
+	97% {
+		opacity: 1;
+	}
+}
+
+.flicker {
+	animation: flicker 4s ease-in-out infinite;
+}
+
+@layer base {
+	* {
+		@apply border-border outline-ring/50;
+	}
+}
