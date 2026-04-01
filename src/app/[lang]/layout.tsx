@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { IBM_Plex_Mono, Rajdhani } from "next/font/google";
+import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { Footer } from "@/src/components/footer";
 import { Header } from "@/src/components/header";
 import { ScrollToTop } from "@/src/components/scroll-to-top";
 import { ThemeProvider } from "@/src/components/theme-provider";
-import type { Locale } from "@/src/i18n/config";
-import { locales } from "@/src/i18n/config";
+import { isLocale, type Locale, locales } from "@/src/i18n/config";
 import { getDictionary } from "@/src/i18n/get-dictionary";
 import "../globals.css";
 
@@ -73,7 +73,10 @@ export default async function RootLayout({
 	params: Promise<{ lang: string }>;
 }) {
 	const { lang: rawLang } = await params;
-	const lang = rawLang as Locale;
+	if (!isLocale(rawLang)) {
+		notFound();
+	}
+	const lang: Locale = rawLang;
 	const dictionary = await getDictionary(lang);
 
 	return (

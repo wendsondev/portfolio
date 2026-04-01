@@ -5,6 +5,7 @@ type SocialLinkProps = {
 	name: string;
 	icon: ReactNode;
 	target?: string;
+	rel?: string;
 };
 
 export function SocialLink({
@@ -12,11 +13,13 @@ export function SocialLink({
 	name,
 	icon,
 	target = "_blank",
+	rel,
 }: SocialLinkProps) {
 	return (
 		<a
 			href={href}
 			target={target}
+			rel={rel}
 			className="group glitch-hover flex items-center gap-3 border border-text-accent/15 bg-bg-secondary/60 px-5 py-4 transition-all hover:border-text-accent hover:shadow-[0_0_16px_color-mix(in_srgb,var(--text-accent)_15%,transparent)]"
 		>
 			<span className="flex h-10 w-10 items-center justify-center border border-text-accent/20 text-text-accent transition-all group-hover:border-text-accent group-hover:shadow-[0_0_8px_var(--text-accent)]">

@@ -4,7 +4,7 @@ import { Brain, Calendar, Cloud, Layers } from "lucide-react";
 import { ProgressiveCount } from "@/src/components/progressive-count";
 import { useInView } from "@/src/hooks/use-in-view";
 import type { Dictionary } from "@/src/i18n/get-dictionary";
-import { cf, cn } from "@/src/lib/utils";
+import { cf } from "@/src/lib/utils";
 
 type StatsBarProps = {
 	dictionary: Dictionary;

@@ -1,4 +1,5 @@
 import { ChevronDown, Github, Linkedin, Mail, Twitter } from "lucide-react";
+import { notFound } from "next/navigation";
 import { AnimateOnScroll } from "@/src/components/animate-on-scroll";
 import { ExperienceTimeline } from "@/src/components/experience-timeline";
 import { SocialLink } from "@/src/components/social-link";
@@ -7,7 +8,7 @@ import { TechStack } from "@/src/components/tech-stack";
 import { Badge } from "@/src/components/ui/badge";
 import { experiences } from "@/src/data/experience";
 import { skillCategories } from "@/src/data/skills";
-import type { Locale } from "@/src/i18n/config";
+import { isLocale, type Locale } from "@/src/i18n/config";
 import { getDictionary } from "@/src/i18n/get-dictionary";
 
 export default async function Home({
@@ -16,7 +17,10 @@ export default async function Home({
 	params: Promise<{ lang: string }>;
 }) {
 	const { lang: rawLang } = await params;
-	const lang = rawLang as Locale;
+	if (!isLocale(rawLang)) {
+		notFound();
+	}
+	const lang: Locale = rawLang;
 	const dict = await getDictionary(lang);
 
 	return (
@@ -183,16 +187,19 @@ export default async function Home({
 									href="https://github.com/wendsondev"
 									name="GitHub"
 									icon={<Github size={20} />}
+									rel="noopener noreferrer"
 								/>
 								<SocialLink
 									href="https://www.linkedin.com/in/wendsondev/"
 									name="LinkedIn"
 									icon={<Linkedin size={20} />}
+									rel="noopener noreferrer"
 								/>
 								<SocialLink
 									href="https://twitter.com/wendsondev/"
 									name="Twitter"
 									icon={<Twitter size={20} />}
+									rel="noopener noreferrer"
 								/>
 							</div>
 						</div>

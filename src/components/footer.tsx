@@ -18,11 +18,13 @@ export function Footer({ dictionary }: FooterProps) {
 						href="https://github.com/wendsondev"
 						name="GitHub"
 						icon={<Github size={20} />}
+						rel="noopener noreferrer"
 					/>
 					<SocialLink
 						href="https://www.linkedin.com/in/wendsondev/"
 						name="LinkedIn"
 						icon={<Linkedin size={20} />}
+						rel="noopener noreferrer"
 					/>
 				</div>
 
