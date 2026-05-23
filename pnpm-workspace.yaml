@@ -6,3 +6,6 @@ overrides:
 ignoredBuiltDependencies:
   - msw
   - sharp
+allowBuilds:
+  msw: false
+  sharp: false
