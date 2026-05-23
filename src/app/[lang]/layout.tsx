@@ -22,6 +22,32 @@ const ibmPlexMono = IBM_Plex_Mono({
 	weight: ["300", "400", "500", "600", "700"],
 });
 
+const siteUrl = new URL("https://www.wendson.dev");
+
+const metadataByLocale = {
+	en: {
+		title: "Wendson Sousa | Full Stack Developer",
+		description:
+			"Full Stack Developer building scalable web applications, APIs, and AI-powered solutions.",
+		openGraphLocale: "en_US",
+	},
+	"pt-br": {
+		title: "Wendson Sousa | Desenvolvedor Full Stack",
+		description:
+			"Desenvolvedor Full Stack construindo aplicações web escaláveis, APIs e soluções com IA.",
+		openGraphLocale: "pt_BR",
+	},
+	ja: {
+		title: "Wendson Sousa | フルスタックエンジニア",
+		description:
+			"スケーラブルなWebアプリケーション、API、AIを活用したソリューションを設計・開発するフルスタックエンジニアです。",
+		openGraphLocale: "ja_JP",
+	},
+} satisfies Record<
+	Locale,
+	{ title: string; description: string; openGraphLocale: string }
+>;
+
 export async function generateStaticParams() {
 	return locales.map((lang) => ({ lang }));
 }
@@ -32,31 +58,34 @@ export async function generateMetadata({
 	params: Promise<{ lang: string }>;
 }): Promise<Metadata> {
 	const { lang } = await params;
-	const isEn = lang === "en";
+	if (!isLocale(lang)) {
+		notFound();
+	}
+	const metadata = metadataByLocale[lang];
 
 	return {
-		title: "Wendson Sousa | Full Stack Developer",
-		description: isEn
-			? "Full Stack Developer building scalable web applications, APIs, and AI-powered solutions."
-			: "Desenvolvedor Full Stack construindo aplicações web escaláveis, APIs e soluções com IA.",
+		metadataBase: siteUrl,
+		title: metadata.title,
+		description: metadata.description,
 		openGraph: {
-			title: "Wendson Sousa | Full Stack Developer",
-			description: isEn
-				? "Full Stack Developer building scalable web applications, APIs, and AI-powered solutions."
-				: "Desenvolvedor Full Stack construindo aplicações web escaláveis, APIs e soluções com IA.",
+			title: metadata.title,
+			description: metadata.description,
 			type: "website",
-			locale: isEn ? "en_US" : "pt_BR",
+			url: `/${lang}`,
+			locale: metadata.openGraphLocale,
 			images: ["/share-image.jpg"],
 		},
 		twitter: {
 			card: "summary_large_image",
-			title: "Wendson Sousa | Full Stack Developer",
+			title: metadata.title,
 			images: ["/share-image.jpg"],
 		},
 		alternates: {
+			canonical: `/${lang}`,
 			languages: {
 				en: "/en",
 				"pt-BR": "/pt-br",
+				ja: "/ja",
 			},
 		},
 		icons: {
@@ -87,7 +116,7 @@ export default async function RootLayout({
 				<ThemeProvider>
 					<Header dictionary={dictionary} lang={lang} />
 					<main className="pt-20">{children}</main>
-					<Footer dictionary={dictionary} />
+					<Footer dictionary={dictionary} lang={lang} />
 					<ScrollToTop />
 				</ThemeProvider>
 			</body>
