@@ -24,15 +24,27 @@ function SkillImage({
 	const [loaded, setLoaded] = useState(false);
 
 	return (
-		<span className={cf("", "rounded bg-neutral-800 p-1", !!iconBg)}>
-			<Image
-				src={src}
-				alt={alt}
-				width={20}
-				height={20}
-				className={cf("dark:invert-0 img-blur-load", "loaded", loaded)}
-				onLoad={() => setLoaded(true)}
-			/>
+		<span
+			className={cf(
+				"inline-flex h-5 w-5 shrink-0 items-center justify-center",
+				"h-7 w-7 rounded bg-neutral-800",
+				!!iconBg,
+			)}
+		>
+			<span className="relative block h-5 w-5">
+				<Image
+					src={src}
+					alt={alt}
+					fill
+					sizes="20px"
+					className={cf(
+						"object-contain dark:invert-0 img-blur-load",
+						"loaded",
+						loaded,
+					)}
+					onLoad={() => setLoaded(true)}
+				/>
+			</span>
 		</span>
 	);
 }
