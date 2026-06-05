@@ -20,10 +20,10 @@ const badgeVariants = cva(
 					"hover:bg-muted hover:text-muted-foreground dark:hover:bg-muted/50",
 				link: "text-primary underline-offset-4 hover:underline",
 				status:
-					"border border-text-accent/30 bg-bg-secondary/70 font-sans tracking-wider uppercase text-text-accent shadow-[0_0_12px_var(--text-accent-alpha,rgba(0,255,229,0.12))]",
+					"border border-text-accent/35 bg-bg-secondary/80 font-sans tracking-wider uppercase text-text-accent shadow-[0_0_0_1px_var(--text-accent-alpha)]",
 				highlight:
-					"border border-neon-magenta/30 bg-neon-magenta/10 font-sans text-[10px] tracking-wider uppercase text-neon-magenta",
-				tech: "border border-text-accent/20 bg-text-accent/8 font-sans text-[10px] tracking-wider uppercase text-text-secondary",
+					"border border-neon-magenta/40 bg-neon-magenta/8 font-sans text-[10px] font-semibold tracking-wider uppercase text-neon-magenta dark:bg-neon-magenta/12",
+				tech: "border border-text-accent/25 bg-bg-secondary/70 font-sans text-[10px] font-semibold tracking-wider uppercase text-text-tertiary dark:bg-text-accent/8 dark:text-text-secondary",
 			},
 		},
 		defaultVariants: {

@@ -111,7 +111,7 @@ export default async function RootLayout({
 	return (
 		<html lang={lang} suppressHydrationWarning>
 			<body
-				className={`${rajdhani.variable} ${ibmPlexMono.variable} crt-scanlines vignette antialiased`}
+				className={`${rajdhani.variable} ${ibmPlexMono.variable} crt-scanlines antialiased`}
 			>
 				<ThemeProvider>
 					<Header dictionary={dictionary} lang={lang} />
