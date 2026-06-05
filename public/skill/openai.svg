@@ -7,12 +7,7 @@
 >
   <style>
     :root {
-      fill: #000;
-    }
-    @media (prefers-color-scheme: dark) {
-      :root {
-        fill: #fff;
-      }
+      fill: #fff;
     }
   </style>
   <path
